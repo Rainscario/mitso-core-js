@@ -42,9 +42,14 @@ class PaginationHelper {
 
   // returns the number of items on the current page. page_index is zero based.
   // this method should return -1 for pageIndex values that are out of range
-  pageItemCount() {
-    console.log(this);
-    throw new Error('Not implemented');
+  pageItemCount(num) {
+    if (num < 0 || num >= this.pageCount()) {
+      return -1;
+    }
+    if (num === this.pageCount() - 1) {
+      return this.collection.length % this.itemsPerPage || this.itemsPerPage;
+    }
+    return this.itemsPerPage;
   }
 
   // determines what page an item is on. Zero based indexes
