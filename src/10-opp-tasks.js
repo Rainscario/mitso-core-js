@@ -63,7 +63,6 @@ class PaginationHelper {
   }
 }
 
-
 module.exports = {
   PaginationHelper,
 };
